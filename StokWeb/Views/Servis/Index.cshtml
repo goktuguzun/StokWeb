@@ -1,5 +1,5 @@
 ﻿@using StokWeb.Models.Entitiy
-@model List<StokGirisCikis>
+@model List<Servis>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -24,7 +24,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Stok Hareketler</h2>
+        <h2>Servisteki Ürünler</h2>
         <table class="table table-fluid" id="myTable">
             <thead>
                 <tr>
@@ -33,28 +33,40 @@
 
                     </th>
                     <th class="th-sm">
-                        Stok Kodu
+                        Ürün
 
                     </th>
                     <th class="th-sm">
-                        Stok Adı
+                        Gittiği Tarih
 
                     </th>
                     <th class="th-sm">
-                        Açıklama
+                        Gittiği Servis
 
                     </th>
                     <th class="th-sm">
-                        Tarih
+                        Geldiği Tarih
 
                     </th>
                     <th class="th-sm">
-                        Adet
+                        Teslim Eden Kişi/Bölüm
 
                     </th>
                     <th class="th-sm">
 
-                        Sicil
+                        Arıza
+                    </th>
+                    <th class="th-sm">
+                        Durum
+
+                    </th>
+                    <th class="th-sm">
+                        SicilNo
+
+                    </th>
+                    <th class="th-sm">
+                        Yapılan İşlem
+
                     </th>
                     <th class="th-sm">
 
@@ -70,19 +82,21 @@
                 @foreach (var i in Model)
                 {
                 <tr>
-                    <td>@i.Id</td>
-                    <td>@i.StokKod</td>
-                    <td>@i.StokAd</td>
-                    <td>@i.Aciklama</td>
-                    <td>@i.Tarih</td>
-                    <td>@i.Adet</td>
-                    <td>@i.Sicil</td>
+                    <td>@i.id</td>
+                    <td>@i.Urun</td>
+                    <td>@i.Gittigitarih</td>
+                    <td>@i.GittigiServis</td>
+                    <td>@i.GeldigiTarih</td>
+                    <td>@i.TedenBolum</td>
+                    <td>@i.Arıza</td>
+                    <td>@i.Durum</td>
+                    <td>@i.SicilNo</td>
+                    <td>@i.YapılanIslem</td>
                     <td>
-                        <a href="/Stok/StokGuncelle/@i.Id" type="button" class="btn btn-warning">Düzenle</a>
-
+                        <a href="/Servis/ServisGuncelle/@i.id" type="button" class="btn btn-warning">Düzenle</a>
                     </td>
                     <td>
-                        @Html.ActionLink("Sil", "StokSil", new { id = i.Id }, new { @class = "btn btn-danger", onclick = "return confirm ('Silmek İstediğinize Emin Misiniz ?')" })
+                        @Html.ActionLink("Sil", "ServisSil", new { id = i.id }, new { @class = "btn btn-danger", onclick = "return confirm ('Silmek İstediğinize Emin Misiniz ?')" })
 
                     </td>
                 </tr>

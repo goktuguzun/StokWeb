@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -22,10 +21,17 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-           
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-industry fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">3. Organize</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="#">5. Organize</a></li>
+                </ul>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -58,12 +64,20 @@
                                 <a class="nav-link" href="layout-sidenav-light.html">Web Modülü Kullanıcılar</a>
                             </nav>
                         </div>
-                        <div class="sb-sidenav-menu-heading">İşlemler</div>
 
-                        <a class="nav-link" href="/Servis/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Servis İşlemleri
+                        <div class="sb-sidenav-menu-heading">Ürün ve Servis İşlemleri</div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Ürün ve Servis İşlemleri
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="">Arızalı Ürün</a>
+                                <a class="nav-link" href="">Arızalı Ürün Bildirimi</a>
+                                <a class="nav-link" href="/Servis/Index">Servis</a>
+                            </nav>
+                        </div>
                         <div class="sb-sidenav-menu-heading">Stok İşlemleri</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -72,10 +86,11 @@
                         </a>
                         <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/Stok/MevcutStok">Mevcut Stok</a>
                                 <a class="nav-link" href="/Stok/Index">Stok Hareketleri</a>
                                 <a class="nav-link" href="/Stok/YeniStokGiris">Yeni Stok Ekle</a>
-                                <a class="nav-link" href="/Stok/StokGiris"> Stok Ekle</a>
-                                <a class="nav-link" href="/Stok/StokGirisCikisEkle">Giriş-Çıkış</a>
+                                <a class="nav-link" href="/Stok/StokGiris"> Stok Giriş Yap</a>
+                                <a class="nav-link" href="/Stok/StokGirisCikisEkle">Stok Çıkış Yap</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="/Login/Index">
@@ -113,113 +128,3 @@
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<link href="~/fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
-<link href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        body {
-            font-family: "Lato", sans-serif;
-        }
-
-        .sidebar {
-            height: 100%;
-            width: 270px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 16px;
-        }
-
-            .sidebar a {
-                padding: 6px 8px 6px 16px;
-                text-decoration: none;
-                font-size: 20px;
-                color: #818181;
-                display: block;
-            }
-
-                .sidebar a:hover {
-                    color: #f1f1f1;
-                }
-
-        .main {
-            margin-left: 160px; /* Same as the width of the sidenav */
-            padding: 0px 10px;
-        }
-
-        @@media screen and (max-height: 450px) {
-            .sidebar {
-                padding-top: 15px;
-            }
-
-                .sidebar a {
-                    font-size: 18px;
-                }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="sidebar conteiner pt-3">
-
-
-        <button type="reset" class="btn btn-light">Geçerli Kullanıcı : @HttpContext.Current.User.Identity.Name</button>
-        <hr />
-        <a href="#home"><i class="glyphicon glyphicon-home"></i>  Anasayfa</a>
-        <hr />
-        <a href="#services"><i class="glyphicon glyphicon-wrench"></i>  Arızalı Ürünler</a>  <hr />
-        <a href="#clients"><i class="glyphicon glyphicon-user"></i>  Stok Modülü Kullanıcılar</a>  <hr />
-        <a href="#clients"><i class="glyphicon glyphicon-user"></i>  Web Modülü Kullanıcılar</a>  <hr />
-        <a href="#contact"><i class="glyphicon glyphicon-list-alt"></i> Servis İşlemleri</a>  <hr />
-        <a href="/Stok/Index"><i class="glyphicon glyphicon-shopping-cart"></i>  Stok Hareketleri</a>  <hr />
-        <a href="/Stok/StokGirisCikisEkle"><i class="glyphicon glyphicon-retweet"></i>  Giriş-Çıkış</a>  <hr />
-        <a href="/login/Index"><i class="glyphicon glyphicon-log-out"></i>  Çıkış Yap</a>  <hr />
-        <a href="/login/Index"><i class="glyphicon glyphicon-log-out"></i>  Giriş Yap</a>  <hr />
-    </div>
-
-    <div class="container pt-9">
-       
-    </div>
-
-</body>
-</html>
- -->

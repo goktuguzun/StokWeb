@@ -189,6 +189,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\table2.css" />
     <Content Include="Content\css\table.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\util.css" />
@@ -359,10 +360,12 @@
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\Stok\StokGiris.cshtml" />
     <Content Include="Views\Stok\YeniStokGiris.cshtml" />
+    <Content Include="Views\Servis\Index.cshtml" />
+    <Content Include="Views\Stok\MevcutStok.cshtml" />
+    <Content Include="Views\Stok\MevcutStokGuncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Servis\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

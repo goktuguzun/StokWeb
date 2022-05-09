@@ -72,15 +72,7 @@ namespace StokWeb.Controllers
         [HttpPost]
         public ActionResult StokGiris(StokTabloSatici s)
         {
-            db.StokTabloSatici.Add(s);
-            db.SaveChanges();
-            return View();
-
-        }
-
-
-        public ActionResult YeniStokGiris(StokTabloSatici s)
-        {
+           
             var stok = db.StokTabloSatici.Find(s.Id);
             stok.KalanMiktar = s.KalanMiktar;
             stok.KritikStok = s.KritikStok;
@@ -90,6 +82,32 @@ namespace StokWeb.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult YeniStokGiris(StokTabloSatici s)
+        {
+            db.StokTabloSatici.Add(s);
+            db.SaveChanges();
+            return View();
+        }
+        [HttpGet]
+        public ActionResult YeniStokGiris()
+        {
+            
+            return View();
+        }
+
+
+        public ActionResult MevcutStok()
+        {
+            var degerler = db.StokTabloSatici.ToList();
+            return View(degerler);
+        }
+        public ActionResult MevcutStokGuncelle(int id)
+        {
+            var stok = db.StokTabloSatici.Find(id);
+
+            return View(stok);
+        }
 
     }
 }
